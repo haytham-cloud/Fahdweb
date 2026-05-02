@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .form-card {
+            background: white;
+            border-radius: 32px;
+            padding: 40px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .form-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .form-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #5a3e2a;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .form-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 3px;
+        }
+
+        .input-group {
+            text-align: right;
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .nameuser {
+            width: 100%;
+            padding: 15px 18px;
+            font-size: 1rem;
+            font-family: 'Tajawal', sans-serif;
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            outline: none;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        .nameuser:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
+            background: white;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            font-family: 'Tajawal', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -8px rgba(102, 126, 234, 0.5);
+        }
+
+        .submit-btn:active {
+            transform: translateY(1px);
+        }
+
+        .error-message {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 16px;
+            font-size: 0.85rem;
+            display: none;
+            animation: shake 0.3s ease;
+        }
+
+        .error-message.show {
+            display: block;
+            background: #fee2e2;
+            color: #c53030;
+            border-right: 4px solid #dc2626;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-card">
+        <div class="form-title">✨ تسجيل الدخول ✨</div>
+        
+        <div class="input-group">
+            <label for="name">الاسم</label>
+            <input class="nameuser" type="text" id="name" placeholder="أدخل اسمك">
+        </div>
+
+        <input type="submit" class="submit-btn" id="submitBtn" value="حفظ وتسجيل الدخول">
+        
+        <div class="error-message" id="errorMsg">⚠️ يرجى إدخال اسمك</div>
+    </div>
+
+    <script>
+        const submitBtn = document.getElementById('submitBtn');
+        const nameInput = document.getElementById('name');
+        const errorMsg = document.getElementById('errorMsg');
+        const targetLink = "/data/data/org.smartide.code/files/home/projects/hsksjsj/script.html";
+
+        function showError(message) {
+            errorMsg.textContent = message;
+            errorMsg.classList.add('show');
+            nameInput.style.borderColor = '#dc2626';
+            
+            setTimeout(() => {
+                errorMsg.classList.remove('show');
+                nameInput.style.borderColor = '#e2e8f0';
+            }, 3000);
+        }
+
+        submitBtn.addEventListener('click', function(e) {
+            const userName = nameInput.value.trim();
+            
+            if (userName === '') {
+                e.preventDefault();
+                showError('⚠️ يرجى إدخال اسمك');
+                nameInput.focus();
+            } 
+            else if (userName.length < 3) {
+                e.preventDefault();
+                showError('⚠️ الاسم يجب أن يكون 3 أحرف على الأقل');
+                nameInput.focus();
+            }
+            else {
+                localStorage.setItem('userName', userName);
+                window.location.href = targetLink;
+            }
+        });
+
+        nameInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                submitBtn.click();
+            }
+        });
+
+        nameInput.addEventListener('input', function() {
+            this.style.borderColor = '#e2e8f0';
+        });
+    </script>
+</body>
+</html>
