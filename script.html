@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>زاد المسلم - سور عظيمة وفضائلها</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #fef9f0 0%, #f3ebd8 100%);
+            font-family: 'Tajawal', sans-serif;
+            padding: 40px 20px;
+            color: #2c3e2f;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* بطاقة رئيسية */
+        .main-card {
+            background: #ffffffdd;
+            backdrop-filter: blur(2px);
+            border-radius: 48px;
+            padding: 30px 35px;
+            margin-bottom: 35px;
+            box-shadow: 0 25px 45px -12px rgba(0,0,0,0.25);
+            border: 1px solid #e8dcc8;
+            transition: transform 0.2s ease;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #a4682b;
+            text-align: center;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+            text-shadow: 2px 2px 8px rgba(160, 100, 30, 0.15);
+            position: relative;
+        }
+
+        h1:after {
+            content: "☆";
+            font-size: 2.5rem;
+            color: #d4af37;
+            position: absolute;
+            margin-right: 12px;
+            opacity: 0.6;
+        }
+
+        h1:before {
+            content: "☆";
+            font-size: 2.5rem;
+            color: #d4af37;
+            position: absolute;
+            margin-left: 12px;
+            opacity: 0.6;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #8b5a2b;
+            border-right: 6px solid #c9a87b;
+            padding-right: 18px;
+            margin: 25px 0 20px 0;
+        }
+
+        /* الشبكة الخاصة بالسور */
+        .surahs-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-top: 10px;
+        }
+
+        .surah-item {
+            background: #fffaf2;
+            border-radius: 28px;
+            padding: 14px 25px;
+            transition: all 0.25s;
+            border: 1px solid #f0e4d0;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.02);
+        }
+
+        .surah-item:hover {
+            transform: translateX(-5px);
+            background: #ffffff;
+            border-color: #dbbc87;
+            box-shadow: 0 12px 20px -12px rgba(110, 70, 20, 0.2);
+        }
+
+        .surah-name {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #ad6b35;
+            display: inline-block;
+            margin-left: 15px;
+            letter-spacing: -0.3px;
+        }
+
+        .surah-fadl {
+            font-size: 1.1rem;
+            color: #4a5b4a;
+            margin-top: 6px;
+            padding-right: 25px;
+            border-right: 3px solid #e2c7a0;
+        }
+
+        .surah-fadl p {
+            margin: 6px 0;
+        }
+
+        hr {
+            margin: 12px 0;
+            border: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #e2c7a0, transparent);
+        }
+
+        /* كتلة الآيات (الفاتحة والبقرة) */
+        .ayah-box {
+            background: #fcf7ef;
+            border-radius: 36px;
+            padding: 25px;
+            margin: 30px 0 20px;
+            border: 1px solid #eadabc;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .ayah-title {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #a05e2c;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .quran-text {
+            font-family: 'Amiri Quran', 'Times New Roman', serif;
+            font-size: 1.8rem;
+            line-height: 2.6rem;
+            text-align: center;
+            color: #2a412a;
+            background: #fef7e8;
+            padding: 20px;
+            border-radius: 28px;
+            word-spacing: 6px;
+        }
+
+        .quran-text blockquote {
+            font-family: 'Amiri Quran', serif;
+            font-size: 1.7rem;
+            margin: 0;
+            border: none;
+            background: transparent;
+            padding: 0;
+        }
+
+        .quran-text blockquote::before {
+            content: "﴿";
+            font-size: 2rem;
+            color: #b8860b;
+            margin-left: 8px;
+        }
+        .quran-text blockquote::after {
+            content: "﴾";
+            font-size: 2rem;
+            color: #b8860b;
+            margin-right: 8px;
+        }
+
+        audio {
+            width: 100%;
+            margin: 15px 0 5px;
+            outline: none;
+            border-radius: 40px;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            font-size: 1.1rem;
+            background: #e8ddcd60;
+            border-radius: 60px;
+            color: #7e5a3a;
+        }
+
+        .ba {
+            text-decoration: none;
+            font-weight: bold;
+            color: #c28a3e;
+            transition: 0.2s;
+        }
+        .ba:hover {
+            color: #8b501f;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 650px) {
+            body {
+                padding: 20px 12px;
+            }
+            .main-card {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+            .surah-name {
+                font-size: 1.3rem;
+            }
+            .quran-text {
+                font-size: 1.3rem;
+                line-height: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- البطاقة الأولى: سور عظيمة وفضلها (من الملف الثاني) -->
+    <div class="main-card">
+        <h1>زاد المسلم</h1>
+        <div class="section-title">✨ سور عظيمة وفضلها</div>
+        <div class="surahs-grid">
+            <div class="surah-item"><span class="surah-name">📖 سورة الفاتحة</span><div class="surah-fadl">أعظم سورة في القرآن ● ركن أساسي في كل صلاة ● شفاء بإذن الله</div></div>
+            <div class="surah-item"><span class="surah-name">📖 سورة البقرة</span><div class="surah-fadl">تطرد الشياطين من البيت ● فيها آية الكرسي (أعظم آية) ● بركة وتركها حسرة</div></div>
+            <div class="surah-item"><span class="surah-name">📖 سورة آل عمران</span><div class="surah-fadl">تأتي مع البقرة يوم القيامة كغمامتين ● تدافع عن صاحبها</div></div>
+            <div class="surah-item"><span class="surah-name">📖 سورة الكهف</span><div class="surah-fadl">نور بين الجمعتين ● تحفظ من فتنة الدجال</div></div>
+            <div class="surah-item"><span class="surah-name">📖 سورة يس</span><div class="surah-fadl">تُسمّى قلب القرآن ● تُقرأ لتيسير الأمور (وردت آثار في فضلها)</div></div>
+            <div class="surah-item"><span class="surah-name">📖 سورة الرحمن</span><div class="surah-fadl">من أجمل السور وأثرها عظيم في القلب ● فيها تذكير بنعم الله</div></div>
+            <div class="surah-item"><span class="surah-name">📖 سورة الواقعة</span><div class="surah-fadl">ورد أنها سبب للرزق (أثر مشهور)</div></div>
+            <div class="surah-item"><span class="surah-name">📖 سورة الملك</span><div class="surah-fadl">تنجي من عذاب القبر ● تشفع لصاحبها</div></div>
+            <div class="surah-item"><span class="surah-name">📖 سورة الكافرون</span><div class="surah-fadl">تعدل ربع القرآن ● تقرأ قبل النوم</div></div>
+            <div class="surah-item"><span class="surah-name">📖 سورة الإخلاص</span><div class="surah-fadl">تعدل ثلث القرآن ● سبب لمحبة الله</div></div>
+            <div class="surah-item"><span class="surah-name">📖 سورة الفلق</span><div class="surah-fadl">من أعظم سور التحصين ● تُقرأ صباحًا ومساءً</div></div>
+            <div class="surah-item"><span class="surah-name">📖 سورة الناس</span><div class="surah-fadl">من أعظم سور التحصين ● تُقرأ صباحًا ومساءً</div></div>
+        </div>
+    </div>
+
+    <!-- القسم الثاني الخاص بالآيات (الفاتحة والبقرة) مطابق لما في السابق -->
+    <div class="main-card">
+        <div class="ayah-box">
+            <div class="ayah-title">🍃 سورة الفاتحة كاملةً</div>
+            <div class="quran-text">
+                <blockquote>
+                    بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ ۝١<br>
+                    ٱلۡحَمۡدُ لِلَّهِ رَبِّ ٱلۡعَٰلَمِينَ ۝٢ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ ۝٣ مَٰلِكِ يَوۡمِ ٱلدِّينِ<br>
+                    ۝٤ إِيَّاكَ نَعۡبُدُ وَإِيَّاكَ نَسۡتَعِينُ ۝٥ ٱهۡدِنَا ٱلصِّرَٰطَ ٱلۡمُسۡتَقِيمَ<br>
+                    ۝٦ صِرَٰطَ ٱلَّذِينَ أَنۡعَمۡتَ عَلَيۡهِمۡ غَيۡرِ ٱلۡمَغۡضُوبِ عَلَيۡهِمۡ وَلَا ٱلضَّآلِّينَ ۝٧
+                </blockquote>
+            </div>
+            <audio controls>
+                <source src="https://server11.mp3quran.net/yasser/001.mp3" type="audio/mpeg">
+                متصفحك لا يدعم التشغيل الصوتي.
+            </audio>
+        </div>
+
+        <div class="ayah-box">
+            <div class="ayah-title">📖 أول آيات من سورة البقرة</div>
+            <div class="quran-text">
+                <blockquote>
+                    الٓمٓ ۝١ ذَٰلِكَ ٱلۡكِتَٰبُ لَا رَيۡبَۛ فِيهِۛ هُدٗى لِّلۡمُتَّقِينَ ۝٢<br>
+                    ٱلَّذِينَ يُؤۡمِنُونَ بِٱلۡغَيۡبِ وَيُقِيمُونَ ٱلصَّلَوٰةَ وَمِمَّا رَزَقۡنَٰهُمۡ يُنفِقُونَ ۝٣<br>
+                    وَٱلَّذِينَ يُؤۡمِنُونَ بِمَآ أُنزِلَ إِلَيۡكَ وَمَآ أُنزِلَ مِن قَبۡلِكَ وَبِٱلۡأٓخِرَةِ هُمۡ يُوقِنُونَ ۝٤<br>
+                    أُوْلَٰٓئِكَ عَلَىٰ هُدٗى مِّن رَّبِّهِمۡۖ وَأُوْلَٰٓئِكَ هُمُ ٱلۡمُفۡلِحُونَ
+                </blockquote>
+            </div>
+        </div>
+    </div>
+
+    <!-- تذييل المبرمج (حسب طلبك) -->
+    <div class="footer-note">
+        <ul style="list-style: none; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+            <li>🌟 <a class="ba" href="https://t.me/Programerhtmls" target="_blank">المبرمج</a> هيثم الضناوي</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
